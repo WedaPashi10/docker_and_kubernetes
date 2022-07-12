@@ -1,4 +1,4 @@
-# Docker and Kubernetes
+# Getting started with Docker
 Before taking a deeper dive, lets familiarize ourselves with crucial terminologies.
 
 ### Docker
@@ -29,5 +29,61 @@ So, when Docker Containers and Virtual Machines are compared:
 + Docker Containers are better in terms of Sharing, distribution and rebuilding -- via images and config files
 
 ***
-# Docker Installation
+### Basic Docker commands
 
+- View Client’s and Server’s Version of Docker:
+
+    docker version
+
+- Listing all the the existing docker images:
+
+    docker images
+
+- Listing all the containers that are running at present:
+
+    docker ps
+
+- Listing all the containers 
+
+    docker ps -a
+
+- Build an image form a Docker file
+
+    docker build <imageName>
+
+- Run an image in a new container, `imageName` can be fetched from `docker images` command
+
+    docker run <imageName>
+
+- Start one or more stopped containers
+
+    docker start
+
+These are the most basic commands. For more help, you always know where to look at:
+
+    docker --help
+
+Or, for more help on a particular command:
+
+    docker <command> --help
+
+### Dockerfile
+
+To setup a container you required a `Dockerfile`. Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+
+Format:
+
+    # Comment
+    INSTRUCTION arguments
+
+Source: [Docker Reference Documentation](https://docs.docker.com/engine/reference/builder/)
+
+#### Some basic commands used in a Dockerfile:
+
+- `FROM <command>`- Initializes a new build stage and sets the Base Image for subsequent instructions.
+- `RUN <command>` - Runs the command in a shell in container.
+- `RUN ["executable", "param1", "param2"]` : `exec` form of `RUN` command.
+- `CMD ["executable","param1","param2"]` : The main purpose of a `CMD` is to provide defaults for an executing container. There can only be one `CMD` instruction in a Dockerfile. If you list more than one `CMD` then only the last `CMD` will take effect.
+- `COPY [--chown=<user>:<group>] ["<src>",... "<dest>"]` : Copies new files or directories from `src` and adds them to the filesystem of the container at the path `dest`
+- `ADD [--chown=<user>:<group>] ["<src>",... "<dest>"]` : Copies new files, directories or remote file URLs from `src` and adds them to the filesystem of the image at the path `dest`
+- `WORKDIR /path/to/workdir` : Sets the working directory for any `RUN`, `CMD`, `ENTRYPOINT`, `COPY` and `ADD` instructions that follow it in the Dockerfile. If the `WORKDIR` doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instruction.
