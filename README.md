@@ -31,31 +31,31 @@ So, when Docker Containers and Virtual Machines are compared:
 ***
 ### Basic Docker commands
 
-- View Client’s and Server’s Version of Docker:
+View Client’s and Server’s Version of Docker:  
 
     docker version
-
-- Listing all the the existing docker images:
+    
+Listing all the the existing docker images:  
 
     docker images
 
-- Listing all the containers that are running at present:
+Listing all the containers that are running at present:
 
     docker ps
 
-- Listing all the containers 
+Listing all the containers:
 
     docker ps -a
 
-- Build an image form a Docker file
+Build an image form a Docker file:
 
     docker build <imageName>
 
-- Run an image in a new container, `imageName` can be fetched from `docker images` command
+Run an image in a new container, `imageName` can be fetched from `docker images` command:
 
     docker run <imageName>
 
-- Start one or more stopped containers
+Start one or more stopped containers:
 
     docker start
 
@@ -67,9 +67,10 @@ Or, for more help on a particular command:
 
     docker <command> --help
 
+***
 ### Dockerfile
 
-To setup a container you required a `Dockerfile`. Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+To setup a container you require a `Dockerfile`. Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. So, think of this file as a `Makefile` in your build system. 
 
 Format:
 
